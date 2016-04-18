@@ -2,7 +2,7 @@
 import subprocess
 #installation de zsh
 #a mettre dans le script de commande admin scriptAd.py
-#j'ai dis de la merde, juste à lancer la commande
+#j'ai dis de la merde, juste a lancer la commande
     #subprocess.call(["sudo", "apt-get", "update"])
 #sudo apt-get install zsh -> subprocess.call(["sudo", "apt-get", "install zsh"])
 
@@ -21,7 +21,8 @@ cmd = "sh"
 cmd_arg = "-c"
 cmd_arg2 = "\"$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\""
 
-codeReturn = subprocess.call([cmd, cmd_arg, cmd_arg2])
+#codeReturn = subprocess.call([cmd, cmd_arg, cmd_arg2])
+codeReturn = subprocess.os.system(cmd + " " + cmd_arg +" "+cmd_arg2)
 if codeReturn == 0 :
     print "Installation de OhMyZsh : OK"
 else :
@@ -42,7 +43,7 @@ else :
     print "(OhMyZsh)Changement de shell Erreur, n\'a pas pu etre effectue."
 
 
-#avant verifier que le dossier ~/.oh-my-zsh/custom/themes/ existe bien, si non, le créer
+#avant verifier que le dossier ~/.oh-my-zsh/custom/themes/ existe bien, si non, le creer
 #appel d'un script pour une command admin,
 #ls ~/.oh-my-zsh/custom/ , voir si le dossier themes existe.
 cmd = "ls"
@@ -69,7 +70,7 @@ else :
 # #code python
 # #Trouver la ligne avec "ZSH_THEME" est changer le theme par "powerlevel9k"
 
-# #copie de mon fichié de config .zshrc
+# #copie de mon fichie de config .zshrc
 # #code
 
 # #download guake
@@ -93,7 +94,7 @@ else :
 # #copier/coller de mes fichiers de configs pour qu'ils soient pris en compte
 # cp ~/Documents/vimConfig/.vimrc ~  && cp ~/Documents/vimConfig/.vimrc.bundles ~
 
-# #installation vérification update des bundle de VIM
+# #installation verification update des bundle de VIM
 # vim +BundleInstall! +BundleClean +q
 
 
