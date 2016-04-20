@@ -11,6 +11,7 @@ if codeReturn == 0:
     print "Installation de Zsh : OK"
 else :
     print "(Zsh)Installation Erreur, n\'a pas pu s\'installer."
+    print "returncode : %r" % codeReturn
 
 #installation de Oh My Zsh
 #besoin detre sudo ou pas ?!
@@ -21,12 +22,13 @@ cmd = "sh"
 cmd_arg = "-c"
 cmd_arg2 = "\"$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\""
 
-#codeReturn = subprocess.call([cmd, cmd_arg, cmd_arg2])
 codeReturn = subprocess.os.system(cmd + " " + cmd_arg +" "+cmd_arg2)
+
 if codeReturn == 0 :
     print "Installation de OhMyZsh : OK"
 else :
     print "(OhMyZsh)Installation Erreur, n\'a pas pu s\'installer."
+    print "returncode : %r" % codeReturn
 
 #changement de shell
 #sudo chsh -s /bin/zsh
@@ -41,25 +43,28 @@ if codeReturn == 0 :
     print "(Shell) Changement de shell : OK"
 else :
     print "(OhMyZsh)Changement de shell Erreur, n\'a pas pu etre effectue."
+    print "returncode : %r" % codeReturn
 
 
-#avant verifier que le dossier ~/.oh-my-zsh/custom/themes/ existe bien, si non, le creer
-#appel d'un script pour une command admin,
-#ls ~/.oh-my-zsh/custom/ , voir si le dossier themes existe.
-cmd = "ls"
-cmd_arg = "~/.oh-my-zsh/custom/"
-strRes = subprocess.check_output([cmd, cmd_arg])
-dirIWant = "themes"
+# #avant verifier que le dossier ~/.oh-my-zsh/custom/themes/ existe bien, si non, le creer
+# #appel d'un script pour une command admin,
+# #ls ~/.oh-my-zsh/custom/ , voir si le dossier themes existe.
+# cmd = "ls"
+# cmd_arg = "~/.oh-my-zsh/custom/"
+# strRes = subprocess.check_output([cmd, cmd_arg])
+# dirIWant = "themes"
 
-if dirIWant in strRes:
-    print "~/.oh-my-zsh/custom/themes/ Already exist. OK"
-else :
-    print "the ~/.oh-my-zsh/custom/themes/ does not exist."
-    codeReturn = subprocess.call(["mkdir","~/.oh-my-zsh/custom/themes/"])
-    if codeReturn == 0:
-        print "(Themes) Directory successfully created. OK"
-    else :
-        print "(Themes) Failed to created the ~/.oh-my-zsh/custom/themes/ directory."
+
+
+# if dirIWant in strRes:
+    # print "~/.oh-my-zsh/custom/themes/ Already exist. OK"
+# else :
+    # print "the ~/.oh-my-zsh/custom/themes/ does not exist."
+    # codeReturn = subprocess.call(["mkdir","~/.oh-my-zsh/custom/themes/"])
+    # if codeReturn == 0:
+        # print "(Themes) Directory successfully created. OK"
+    # else :
+        # print "(Themes) Failed to created the ~/.oh-my-zsh/custom/themes/ directory."
 
 
 # #
