@@ -29,7 +29,7 @@ print "--------------------------------------------------"
 print "Installation de Python-pip + Exuberant-ctags."
 print "--------------------------------------------------"
 
-subprocess.call(["sudo", "apt-get", "install", "python-pip"])
+subprocess.call(["sudo", "apt-get", "install", "vim-python-jedi"])
 subprocess.call(["sudo", "apt-get", "install", "Exuberant-ctags"])
 
 
@@ -38,21 +38,41 @@ print "--------------------------------------------------"
 print "Installation de Vim Spf13 + copie fichiers de configs."
 print "--------------------------------------------------"
 
-try:
-	#returncode = subprocess.os.system("curl http://j.mp/spf13-vim3 -L -o - | sh")
+# try:
 
-    subprocess.call(["sudo", "apt-get", "install", "vim-nox"])
-    subprocess.os.system("cp .vimrc $HOME")
-    subprocess.os.system("cp .vimrc.bundles $HOME")
-    subprocess.call(["vim", "+PluginInstall", "+qall"])
+    # returncode = subprocess.os.system("curl http://j.mp/spf13-vim3 -L -o - | sh")
 
-except Exception:
-	print "Une erreur est survenue!!"
-	print "(Spf13) returncode : %r" % returncode
+    # subprocess.call(["sudo", "apt-get", "install", "vim-nox"])
+    # subprocess.os.system("cp .vimrc $HOME")
+    # subprocess.os.system("cp .vimrc.bundles $HOME")
+    # subprocess.call(["vim", "+PluginInstall", "+qall"])
 
-returncode = 0
+# except Exception:
+	# print "Une erreur est survenue!!"
+	# print "(Spf13) returncode : %r" % returncode
+
+# returncode = 0
 print "--------------------------------------------------"
 print "--------------------------------------------------"
-print "Installation de Zsh + OhMyZsh."
+print "Installation de  OhMyZsh."
 print "--------------------------------------------------"
+
+cmd = "sh"
+cmd_arg = "-c"
+cmd_arg2 = "sh -c \"$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\""
+
+args = shlex.split(cmd_arg2)
+print "Commande : \n%r" % args
+codeReturn = subprocess.os.system(cmd_arg2)
+#re = subprocess.Popen(args)
+
+
+subprocess.os.system("cd ~/.oh-my-zsh/custom && mkdir themes")
+
+
+ha = "git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k"
+
+targs = shlex.split(ha)
+
+toto = subprocess.os.system(ha)
 
