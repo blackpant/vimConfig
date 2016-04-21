@@ -33,7 +33,6 @@ subprocess.call(["sudo", "apt-get", "install", "python-pip"])
 subprocess.call(["sudo", "apt-get", "install", "Exuberant-ctags"])
 
 
-
 print "--------------------------------------------------"
 print "--------------------------------------------------"
 print "Installation de Vim Spf13 + copie fichiers de configs."
