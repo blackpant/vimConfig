@@ -76,3 +76,8 @@ targs = shlex.split(ha)
 
 toto = subprocess.os.system(ha)
 
+#installation pwerline-fonts
+#installation guake-tomorrow-night
+#changement de theme guake,
+    # ./set_tomorrow_night.sh
+#changement de la police de Guake par une de Powerline.
