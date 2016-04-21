@@ -1,5 +1,5 @@
 import subprocess
-import shlex 
+import shlex
 
 print "--------------------------------------------------"
 print "--------------------------------------------------"
@@ -11,6 +11,7 @@ try :
 except Exception:
 	print "Une erreur est survenue.\nreturncode : %r" % returncode
 
+returncode = 0
 print "--------------------------------------------------"
 print "--------------------------------------------------"
 print "Installation de Guake."
@@ -21,15 +22,24 @@ try:
 except Exception:
 	print "Une erreur est survenue.\nreturncode : %r" % returncode
 
+returncode = 0
 print "--------------------------------------------------"
 print "--------------------------------------------------"
 print "Installation de Vim Spf13 + copie fichiers de configs."
 print "--------------------------------------------------"
 
-# curl http://j.mp/spf13-vim3 -L -o - | sh
+try:
+	#returncode = subprocess.os.system("curl http://j.mp/spf13-vim3 -L -o - | sh")
 
+	subprocess.os.system("cp .vimrc $HOME")
+	subprocess.os.system("cp .vimrc.bundles $HOME")
+except Exception:
+	print "Une erreur est survenue!!"
+	print "(Spf13) returncode : %r" % returncode
+
+returncode = 0
 print "--------------------------------------------------"
 print "--------------------------------------------------"
-print "Installation de Zsh."
+print "Installation de Zsh + OhMyZsh."
 print "--------------------------------------------------"
 
