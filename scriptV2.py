@@ -1,4 +1,5 @@
 import subprocess
+import os
 import shlex
 
 print "--------------------------------------------------"
@@ -101,6 +102,12 @@ print "--------------------------------------------------"
 #installation guake-tomorrow-night
 #changement de theme guake,
     # ./set_tomorrow_night.sh
+pathpath = os.path.expanduser('~')
+strGuakeTomorrow = pathpath + "/Documents/guakeTomorrow"
+strTheme = pathpath + "/Documents/guakeTomorrow/./set_tomorrow_night.sh"
 
-subprocess.os.system("git clone https://github.com/carwin/guake-tomorrow-night $HOME/Documents/guakeTomorrow")
-subprocess.os.system("$HOME/Documents/guakeTomorrow/./set_tomorrow_night.sh")
+try:
+    subprocess.check_call(["git", "clone", "https://github.com/carwin/guake-tomorrow-night", strGuakeTomorrow])
+    subprocess.check_call([strTheme])
+except Exception:
+    print "Failed Ou le fichier existe deja"
