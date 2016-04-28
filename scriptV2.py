@@ -84,11 +84,15 @@ print "--------------------------------------------------"
 
 #installation powerline-fonts
 #installation via https://github.com/powerline/fonts et ensuite lancer ./install.sh
+# commandes :
+# git clone https://github.com/powerline/fonts $HOME/Documents/fonts
+# $HOME/Documents/fonts/./install.sh
 
-subprocess.call(["cd", "~/Documents/"], shell=True)
-subprocess.call(["git", "clone", "https://github.com/powerline/fonts"], shell=True)
-subprocess.call(["cd","fonts", "&&", "./install.sh"], shell=True)
+powerArgs = "git clone https://github.com/powerline/fonts $HOME/Documents/fonts"
+powerList = shlex.split(powerArgs)
+subprocess.call([powerList])
 
+subprocess.call(["$HOME/Documents/fonts/./install.sh"])
 
 print "--------------------------------------------------"
 print "--------------------------------------------------"
