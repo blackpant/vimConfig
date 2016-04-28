@@ -70,6 +70,7 @@ codeReturn = subprocess.os.system(cmd_arg2)
 
 try:
     subprocess.os.system("cd ~/.oh-my-zsh/custom && mkdir themes")
+    subprocess.check_call(["mkdir",path+"/.oh-my-zsh/custom/themes"])
 except Exception :
     print "Dossier deja existant ou erreur lors de la creation du dossier."
 
@@ -101,12 +102,13 @@ except Exception:
     print "Failed ou fichier dossier deja existant."
 else:
     print """
-        --------------------------------------------------
-        --------------------------------------------------
-        print "PowerLine Fonts Installed"
-        --------------------------------------------------
-        --------------------------------------------------
+--------------------------------------------------
+--------------------------------------------------
+PowerLine Fonts Installed
+--------------------------------------------------
+--------------------------------------------------
     """
+
 print "--------------------------------------------------"
 print "--------------------------------------------------"
 print "Installation de Guake Tomorrow Night Theme."
@@ -124,3 +126,8 @@ try:
     subprocess.check_call([strTheme])
 except Exception:
     print "Failed Ou le fichier existe deja"
+else:
+    print "--------------------------------------------------"
+    print "Installation Guake Tomorrow Night Done."
+    print "--------------------------------------------------"
+
