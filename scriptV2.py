@@ -89,10 +89,9 @@ print "--------------------------------------------------"
 # $HOME/Documents/fonts/./install.sh
 
 powerArgs = "git clone https://github.com/powerline/fonts $HOME/Documents/fonts"
-powerList = shlex.split(powerArgs)
-subprocess.call([powerList])
+subprocess.os.system(powerArgs)
 
-subprocess.call(["$HOME/Documents/fonts/./install.sh"])
+subprocess.os.system("$HOME/Documents/fonts/./install.sh")
 
 print "--------------------------------------------------"
 print "--------------------------------------------------"
@@ -103,6 +102,5 @@ print "--------------------------------------------------"
 #changement de theme guake,
     # ./set_tomorrow_night.sh
 
-subprocess.call(["git", "clone", "https://github.com/carwin/guake-tomorrow-night"])
-subprocess.call(["cd", "quake-tomorrow-night"])
-subprocess.call(["./set_tomorrow_night.sh"])
+subprocess.call(["git", "clone", "https://github.com/carwin/guake-tomorrow-night","$HOME/Documents/guakeTomorrow"])
+subprocess.os.system("$HOME/Documents/guakeTomorrow/./set_tomorrow_night.sh")
