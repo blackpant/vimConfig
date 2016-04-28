@@ -38,20 +38,20 @@ print "--------------------------------------------------"
 print "Installation de Vim Spf13 + copie fichiers de configs."
 print "--------------------------------------------------"
 
-try:
+# try:
 
-    returncode = subprocess.os.system("curl http://j.mp/spf13-vim3 -L -o - | sh")
+    # returncode = subprocess.os.system("curl http://j.mp/spf13-vim3 -L -o - | sh")
 
-    subprocess.call(["sudo", "apt-get", "install", "vim-nox"])
-    subprocess.os.system("cp .vimrc $HOME")
-    subprocess.os.system("cp .vimrc.bundles $HOME")
-    subprocess.call(["vim", "+PluginInstall", "+qall"])
+    # subprocess.call(["sudo", "apt-get", "install", "vim-nox"])
+    # subprocess.os.system("cp .vimrc $HOME")
+    # subprocess.os.system("cp .vimrc.bundles $HOME")
+    # subprocess.call(["vim", "+PluginInstall", "+qall"])
 
-except Exception:
-    print "Une erreur est survenue!!"
-    print "(Spf13) returncode : %r" % returncode
+# except Exception:
+    # print "Une erreur est survenue!!"
+    # print "(Spf13) returncode : %r" % returncode
 
-returncode = 0
+# returncode = 0
 print "--------------------------------------------------"
 print "--------------------------------------------------"
 print "Installation de  OhMyZsh."
