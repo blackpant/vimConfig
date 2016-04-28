@@ -2,6 +2,10 @@ import subprocess
 import os
 import shlex
 
+
+
+pathpath = os.path.expanduser('~')
+
 print "--------------------------------------------------"
 print "--------------------------------------------------"
 print "Installation de Zsh."
@@ -89,11 +93,20 @@ print "--------------------------------------------------"
 # git clone https://github.com/powerline/fonts $HOME/Documents/fonts
 # $HOME/Documents/fonts/./install.sh
 
-powerArgs = "git clone https://github.com/powerline/fonts $HOME/Documents/fonts"
-subprocess.os.system(powerArgs)
-
-subprocess.os.system("$HOME/Documents/fonts/./install.sh")
-
+try:
+    subprocess.check_call(["git", "clone", "https://github.com/powerline/fonts", pathpath+"/Documents/fonts"])
+    strCmd = pathpath + "/Documents/fonts/./install.sh"
+    subprocess.check_call([strCmd])
+except Exception:
+    print "Failed ou fichier dossier deja existant."
+else:
+    print """
+        --------------------------------------------------
+        --------------------------------------------------
+        print "PowerLine Fonts Installed"
+        --------------------------------------------------
+        --------------------------------------------------
+    """
 print "--------------------------------------------------"
 print "--------------------------------------------------"
 print "Installation de Guake Tomorrow Night Theme."
@@ -102,7 +115,7 @@ print "--------------------------------------------------"
 #installation guake-tomorrow-night
 #changement de theme guake,
     # ./set_tomorrow_night.sh
-pathpath = os.path.expanduser('~')
+
 strGuakeTomorrow = pathpath + "/Documents/guakeTomorrow"
 strTheme = pathpath + "/Documents/guakeTomorrow/./set_tomorrow_night.sh"
 
