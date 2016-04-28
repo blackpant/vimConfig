@@ -102,5 +102,5 @@ print "--------------------------------------------------"
 #changement de theme guake,
     # ./set_tomorrow_night.sh
 
-subprocess.call(["git", "clone", "https://github.com/carwin/guake-tomorrow-night","$HOME/Documents/guakeTomorrow"], shell=True)
+subprocess.os.system("git clone https://github.com/carwin/guake-tomorrow-night $HOME/Documents/guakeTomorrow")
 subprocess.os.system("$HOME/Documents/guakeTomorrow/./set_tomorrow_night.sh")
