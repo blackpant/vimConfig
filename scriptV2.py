@@ -63,11 +63,23 @@ args = shlex.split(cmd_arg2)
 print "Commande : \n%r" % args
 codeReturn = subprocess.os.system(cmd_arg2)
 
-subprocess.os.system("cd ~/.oh-my-zsh/custom && mkdir themes")
+try:
+    subprocess.os.system("cd ~/.oh-my-zsh/custom && mkdir themes")
+except Exception :
+    print "Dossier deja existant ou erreur lors de la creation du dossier."
+
+print "--------------------------------------------------"
+print "--------------------------------------------------"
+print "Installation du Theme OhMyZsh Powerlevel9k."
+print "--------------------------------------------------"
 
 ha = "git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k"
 
 toto = subprocess.os.system(ha)
+print "--------------------------------------------------"
+print "--------------------------------------------------"
+print "Installation de Powerline Fonts."
+print "--------------------------------------------------"
 
 #installation powerline-fonts
 #installation via https://github.com/powerline/fonts et ensuite lancer ./install.sh
@@ -77,13 +89,15 @@ subprocess.call(["git", "clone", "https://github.com/powerline/fonts"])
 subprocess.call(["cd","fonts", "&&", "./install.sh"])
 
 
+print "--------------------------------------------------"
+print "--------------------------------------------------"
+print "Installation de Guake Tomorrow Night Theme."
+print "--------------------------------------------------"
+
 #installation guake-tomorrow-night
 #changement de theme guake,
     # ./set_tomorrow_night.sh
 
 subprocess.call(["git", "clone", "https://github.com/carwin/guake-tomorrow-night"])
 subprocess.call(["cd", "quake-tomorrow-night"])
-subprocess.call((["./set_tomorrow_night.sh"])
-
-#changement de la police de Guake par une de Powerline.
-#Meslo* est pas mal.
+subprocess.call(["./set_tomorrow_night.sh"])
