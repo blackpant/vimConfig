@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/ianissaadi/.oh-my-zsh
+  export ZSH=$HOME/.oh-my-zsh
   export TERM="xterm-256color"
 
 # Set name of the theme to load.

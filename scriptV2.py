@@ -76,6 +76,7 @@ print "--------------------------------------------------"
 ha = "git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k"
 
 toto = subprocess.os.system(ha)
+subprocess.os.system("cp .zshrc $HOME")
 print "--------------------------------------------------"
 print "--------------------------------------------------"
 print "Installation de Powerline Fonts."
@@ -84,9 +85,9 @@ print "--------------------------------------------------"
 #installation powerline-fonts
 #installation via https://github.com/powerline/fonts et ensuite lancer ./install.sh
 
-subprocess.call(["cd", "~/Documents/"])
-subprocess.call(["git", "clone", "https://github.com/powerline/fonts"])
-subprocess.call(["cd","fonts", "&&", "./install.sh"])
+subprocess.call(["cd", "~/Documents/"], shell=True)
+subprocess.call(["git", "clone", "https://github.com/powerline/fonts"], shell=True)
+subprocess.call(["cd","fonts", "&&", "./install.sh"], shell=True)
 
 
 print "--------------------------------------------------"
