@@ -12,14 +12,11 @@ def install_tools():
     subprocess.check_call(["sudo", "apt-get", "install", "Exuberant-ctags"])
     subprocess.check_call(["sudo", "apt-get", "install", "vim-nox"])
 
-def install_githubDepo():
-    pass
-
 def install_OhMyZsh():
     cmd_arg2 = "sh -c \"$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\""
     subprocess.check_call(cmd_arg2, shell=True)
     str_powerTheme = "git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k"
-    subprocess.check_call(str_powerTheme)
+    subprocess.check_call(str_powerTheme,shell=True)
     subprocess.os.system("cp .zshrc $HOME")
 
 
@@ -33,6 +30,8 @@ def install_VimSpf13():
 def install_Guake():
     pass
 
+def install_githubDepo():
+    pass
 
 
 def start():
@@ -40,6 +39,8 @@ def start():
         install_tools()
         install_VimSpf13()
         install_OhMyZsh()
+        install_Guake()
+        install_githubDepo()
     except Exception as e:
         print "Erreur lors de l'installation."
         print "Messages : %r." % e
