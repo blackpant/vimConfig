@@ -12,7 +12,7 @@ print "Installation de Zsh."
 print "--------------------------------------------------"
 
 try :
-	returncode = subprocess.call(["sudo", "apt-get", "install", "zsh"])
+	returncode = subprocess.check_call(["sudo", "apt-get", "install", "zsh"])
 except Exception:
 	print "Une erreur est survenue.\nreturncode : %r" % returncode
 
@@ -23,7 +23,7 @@ print "Installation de Guake."
 print "--------------------------------------------------"
 
 try:
-	returncode = subprocess.call(["sudo", "apt-get", "install", "guake"])
+	returncode = subprocess.check_call(["sudo", "apt-get", "install", "guake"])
 except Exception:
 	print "Une erreur est survenue.\nreturncode : %r" % returncode
 
