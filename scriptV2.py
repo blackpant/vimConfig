@@ -34,8 +34,11 @@ print "--------------------------------------------------"
 print "Installation de Python-pip + Exuberant-ctags."
 print "--------------------------------------------------"
 
-subprocess.call(["sudo", "apt-get", "install", "vim-python-jedi"])
-subprocess.call(["sudo", "apt-get", "install", "Exuberant-ctags"])
+try:
+    subprocess.call(["sudo", "apt-get", "install", "vim-python-jedi"])
+    subprocess.call(["sudo", "apt-get", "install", "Exuberant-ctags"])
+except Exception:
+    print "Problems with Vim-Python-Jedi or Exuberant-Ctags."
 
 
 print "--------------------------------------------------"
