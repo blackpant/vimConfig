@@ -15,6 +15,15 @@ def install_tools():
 def install_OhMyZsh():
     cmd_arg2 = "sh -c \"$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\""
     subprocess.check_call(cmd_arg2, shell=True)
+
+
+    try:
+        subprocess.os.system("cd ~/.oh-my-zsh/custom && mkdir themes")
+        subprocess.check_call(["mkdir",path+"/.oh-my-zsh/custom/themes"])
+    except Exception :
+        print "Dossier deja existant ou erreur lors de la creation du dossier."
+
+
     str_powerTheme = "git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k"
     subprocess.check_call(str_powerTheme,shell=True)
     subprocess.os.system("cp .zshrc $HOME")
@@ -37,7 +46,7 @@ def install_githubDepo():
 def start():
     try:
         install_tools()
-        install_VimSpf13()
+        #install_VimSpf13()
         install_OhMyZsh()
         install_Guake()
         install_githubDepo()
