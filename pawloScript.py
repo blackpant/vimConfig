@@ -25,7 +25,7 @@ def install_OhMyZsh():
 
 def install_VimSpf13():
     str_args  = "curl http://j.mp/spf13-vim3 -L -o - | sh"
-    subprocess.check_call(str_args)
+    subprocess.check_call(str_args, shell=True)
     subprocess.os.system("cp .vimrc $HOME")
     subprocess.os.system("cp .vimrc.bundles $HOME")
     subprocess.check_call(["vim", "+PluginInstall", "+qall"])
